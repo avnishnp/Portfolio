@@ -83,6 +83,15 @@ const ExperienceSection = () => {
       ]
     },
     {
+      company: "Carnegie Mellon University",
+      location: "Remote",
+      position: "Research Assistant - AirLab",
+      period: "July 2025 – Present",
+      achievements: [
+        "Integrated a Relative Pose Graph pipeline in ROS2 in C++ using GTSAM Fixed-Lag Smoother in the IMU Preintegration module of the open-source SuperOdometry codebase, to improve ATE/RPE and reduce long term drift in SLAM"
+      ]
+    },
+    {
       company: "Kisan Drip Irrigation Pvt Ltd",
       location: "India",
       position: "Artificial Intelligence Engineer",

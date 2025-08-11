@@ -11,7 +11,7 @@ const AboutSection = () => {
         <div className="flex flex-col items-center md:items-start gap-6 md:gap-8">
           <div className="w-full text-center md:text-left">
             <p className="text-base sm:text-lg mb-4 text-gray-700 dark:text-gray-300">
-              I am a Robotics graduate, with focus on Computer Vision from Northeastern University
+              I am a Masters Robotics graduate, with focus on Computer Vision from Northeastern University
               with over three years of experience in Machine Learning and Computer Vision.
             </p>
             <p className="text-base sm:text-lg mb-4 text-gray-700 dark:text-gray-300">
