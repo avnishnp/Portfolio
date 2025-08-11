@@ -97,8 +97,9 @@ const ExperienceSection = () => {
       position: "Artificial Intelligence Engineer",
       period: "Aug 2020 – Aug 2022",
       achievements: [
-        "Designed a 3D defect detection system using Intel RealSense D455 cameras and Open3D, combining voxel downsampling, RANSAC plane segmentation, DBSCAN clustering, and surface curvature analysis to detect missing holes, dents, and deformations in pipe-extruder and sprinkler products",
-        "Experimented with PointNet-based deep learning models for point cloud classification to enhance complex defect identification, achieving a 30% improvement over traditional 2D vision methods",
+        "Integrated ElasticFusion: RGB-D SLAM with C++ to align multi-view point clouds from Intel RealSense D455 cameras,enabling accurate 3D Reconstruction for pipe inspection and defect analysis",
+        "Experimented with PointNet-based deep learning models in Python for point cloud classification to enhance complex defect identification, achieving a 30% improvement over traditional 2D vision methods",
+        "Implemented YOLO-based object detection to localize drippers in pipe assemblies, enabling precise hole punching",
         "Deployed the 3D vision pipeline as a containerized FastAPI service integrated into on-premises manufacturing workflows"
       ]
     },
