@@ -57,6 +57,17 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 const ExperienceSection = () => {
   const experiences = [
     {
+      company: "Carnegie Mellon University",
+      location: "Remote",
+      position: "Research Assistant - AirLab",
+      period: "July 2025 – Present",
+      achievements: [
+        "Integrated Relative Pose Graph Optimization in ROS2 in C++ using GTSAM Fixed-Lag Smoother in the IMU Preintegration module of the multi-modal IMU-LiDAR sensor fusion to reduce long term drift in SLAM",
+        "Achieved 35.8% lower ATE and 52.5% RPE on the SubT-MRS Laurel Cavern dataset with Velodyne LiDAR",
+        "Executed trajectory mapping using Livox LiDAR and IMU sensors on the Unitree G1 robot, applying a low-pass filter to mitigate IMU bias and enhance mapping accuracy"
+      ]
+    },
+    {
       company: "Medtronic",
       location: "Boston, MA",
       position: "Surgical R&T Machine Learning Engineer",
@@ -80,15 +91,6 @@ const ExperienceSection = () => {
         "Codeveloped the novel RAW10 dataset (10k DNG & JPG images each, 10 categories) to advance LOG RGB research in Computer Vision community",
         "Published CVPR 2024 paper on this research",
       
-      ]
-    },
-    {
-      company: "Carnegie Mellon University",
-      location: "Remote",
-      position: "Research Assistant - AirLab",
-      period: "July 2025 – Present",
-      achievements: [
-        "Integrated a Relative Pose Graph pipeline in ROS2 in C++ using GTSAM Fixed-Lag Smoother in the IMU Preintegration module of the open-source SuperOdometry codebase, to improve ATE/RPE and reduce long term drift in SLAM"
       ]
     },
     {
