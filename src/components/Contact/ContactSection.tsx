@@ -33,37 +33,10 @@ const ContactSection = () => {
                     Email
                   </p>
                   <a
-                    href="mailto:patel.avni@northeastern.edu"
+                    href="mailto:avnishp@andrew.cmu.edu"
                     className="text-sm sm:text-base text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
                   >
-                    patel.avni@northeastern.edu
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <svg
-                  className="w-5 h-5 sm:w-6 sm:h-6 text-blue-500 mr-2 sm:mr-3 mt-0.5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  ></path>
-                </svg>
-                <div>
-                  <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">
-                    Phone
-                  </p>
-                  <a
-                    href="tel:+18576939988"
-                    className="text-sm sm:text-base text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400"
-                  >
-                    +1 (857) 693-9988
+                    avnishp@andrew.cmu.edu
                   </a>
                 </div>
               </div>
@@ -93,7 +66,7 @@ const ContactSection = () => {
                     Location
                   </p>
                   <p className="text-sm sm:text-base text-gray-900 dark:text-white">
-                    USA
+                    Boston, USA
                   </p>
                 </div>
               </div>
@@ -140,58 +113,6 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
-
-        {/* <div className="card">
-            <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">Send Me a Message</h3>
-            <form className="space-y-3 sm:space-y-4">
-              <div>
-                <label htmlFor="name" className="block mb-1 sm:mb-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 sm:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                  placeholder="John Doe" 
-                  required 
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block mb-1 sm:mb-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-white">Your Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 sm:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                  placeholder="name@example.com" 
-                  required 
-                />
-              </div>
-              <div>
-                <label htmlFor="subject" className="block mb-1 sm:mb-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-white">Subject</label>
-                <input 
-                  type="text" 
-                  id="subject" 
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 sm:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                  placeholder="Let me know how I can help you" 
-                  required 
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block mb-1 sm:mb-2 text-xs sm:text-sm font-medium text-gray-900 dark:text-white">Your Message</label>
-                <textarea 
-                  id="message" 
-                  rows={4} 
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-xs sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2 sm:p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                  placeholder="Your message here..." 
-                  required
-                ></textarea>
-              </div>
-              <button 
-                type="submit" 
-                className="btn-primary w-full text-xs sm:text-sm py-2 px-4"
-              >
-                <a href="mailto:doye.n@northeastern.edu?subject=subject+message=message">Send Message</a>
-              </button>
-            </form>
-          </div>*/}
       </div>
     </section>
   );
