@@ -59,26 +59,34 @@ const ExperienceSection = () => {
     {
       company: "Carnegie Mellon University",
       location: "Remote",
-      position: "Research Assistant - AirLab",
-      period: "July 2025 – Present",
+      position: "Visiting Researcher - AirLab",
+      period: "July 2025 – May 2026",
       achievements: [
-        "Integrated Relative Pose Graph Optimization in ROS2 in C++ using GTSAM Fixed-Lag Smoother in the IMU Preintegration module of the multi-modal IMU-LiDAR sensor fusion to reduce long term drift in SLAM",
-        "Achieved 35.8% lower ATE and 52.5% RPE on the SubT-MRS Laurel Cavern dataset with Velodyne LiDAR",
-        "Executed trajectory mapping using Livox LiDAR and IMU sensors on the Unitree G1 robot, applying a low-pass filter to mitigate IMU bias and enhance mapping accuracy"
+        "Integrated Relative Pose Graph Optimization in ROS2 in C++ using GTSAM Factor Graphs Fixed-Lag Smoother in the IMU Preintegration module of the multi-modal IMU-LiDAR sensor fusion to reduce long term drift in SLAM",
+        "Executed trajectory mapping using Livox LiDAR and IMU sensors on the Unitree G1 Humanoid robot, applying a low-pass filter to mitigate IMU bias and enhance mapping accuracy",
+        "Developed a multi-modal sensor fusion visual front-end for Visual-Inertial Odometry based on VINS Mono with learned keypoint detection and patch-based optical flow tracking across Monocular, Stereo, and Thermal camera configurations, providing uncertainty-aware measurements for downstream optimization",
+        "Built a tightly-coupled VIO back-end with Ceres in C++ using Variance Component Analysis (VCA) to adaptively weight Camera and IMU residuals within a sliding-window Bundle Adjustment framework to dynamically balance sensor contributions under degraded conditions",
+        "Evaluated the VIO pipeline on multiple datasets like Euroc, CART, SubT-MRS datasets on challenging and degrading conditions like smoke, dust and low texture environments"
       ]
     },
     {
       company: "Medtronic",
       location: "Boston, MA",
-      position: "Surgical R&T Machine Learning Engineer",
-      period: "Jan 2024 – Apr 2025",
+      position: "Robotics Software Engineer",
+      period: "Jan 2024 – Apr 2025 | Sept 2025 – Present",
       achievements: [
-        "Built an end-to-end SLAM pipeline with DROID-SLAM for dense depth estimation in surgical videos, optimizing camera trajectory using GTSAM and refining 3D reconstruction with Bundle Adjustment and LightGlue feature matching",
+        "Built an end-to-end SLAM pipeline using stereo-rectified, semantically segmented images in DROID-SLAM for dense depth estimation in surgical videos and scene understanding of anatomy and surgical tools",
+        "Optimized camera trajectory using GTSAM Factor Graphs non-linear optimization and refining 3D reconstruction with Bundle Adjustment and Multi-View Geometry with LightGlue feature matching and Open3D offline rendering pipeline",
+        "Designed a Pose Graph pipeline with GTSAM using Robot Kinematics and TensorRT based YOLOv8 vision keypoints to reduce the drift and track the instrument points accurately in Out-of-View scenarios",
+        "Engineered an Arm Collision Avoidance System using Trimesh and Pytorch Volumetric Signed Distance Fields of the medical robot using URDF and Kinematics using RTI DDS publish-subscribe method for rendering a Digital Twin of the robot",
+        "Deployed a C++ based 3D registration pipeline on NVIDIA Holoscan using Fast Foundation Stereo and UniMatch, with custom CUDA kernels for high-performance GPU acceleration",
+        "Developed a monocular depth estimation pipeline using Depth Anything to estimate real-time distances between surgical instrument tips, enabling spatial awareness and precise instrument interaction analysis",
+        "Built a MASt3R SLAM-based registration pipeline to create a 3D Digital Twin of surgical robot carts using GTSAM for multi-camera scale correction and pose optimization, and Signed Distance Fields (SDFs) for collision avoidance",
+        "Programmed a stereo-vision-based localization system using ORB-SLAM3 and RealSense D455 cameras, enabling accurate mapping of surgical cart trajectories in a medical environment",
         "Developed a real-time Ground Truth pose estimation pipeline using OptiTrack camera capture and robot kinematics with PnP and ROMA feature detection for training deep learning models on instrument articulation",
-        "Performed Semantic Segmentation for, Robot-Assisted Surgery, on 10,000 medical images from S3 bucket, containing both mask and line annotations, to segment hernia using the Swin Base Transformer",
-        "Developed a YOLOv8-based pipeline for precise detection of surgical instrument tips from medical images in real-time",
-        "Applied Monocular Depth Estimation to get metric distance between two instruments from an image by Depth Anything",
-        "Implemented a PyTorch wrapper with Optical Flow on FAST API using Unimatch, converting models to ONNX and TensorRT for 10x reduction in real time annotation of medical image frames with 1-second latency"
+        "Automated Endoscope Stereo Camera Calibration using Zhang's method on a Charuco board with a UR3 Robot Arm",
+        "Segmented hernias in 10,000 medical images using Swin Base Transformer with PyTorch DDP for multi-GPU training, tracked experiments via MLflow, and optimized using ONNX/TensorRT",
+        "Implemented a PyTorch wrapper with Optical Flow on FAST API using Unimatch, deploying models to ONNX/TensorRT for 10x reduction in real time annotation of medical image frames with 1-second latency"
       ]
     },
     {
