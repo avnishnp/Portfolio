@@ -57,19 +57,6 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
 const ExperienceSection = () => {
   const experiences = [
     {
-      company: "Carnegie Mellon University",
-      location: "Remote",
-      position: "Visiting Researcher - AirLab",
-      period: "July 2025 – May 2026",
-      achievements: [
-        "Integrated Relative Pose Graph Optimization in ROS2 in C++ using GTSAM Factor Graphs Fixed-Lag Smoother in the IMU Preintegration module of the multi-modal IMU-LiDAR sensor fusion to reduce long term drift in SLAM",
-        "Executed trajectory mapping using Livox LiDAR and IMU sensors on the Unitree G1 Humanoid robot, applying a low-pass filter to mitigate IMU bias and enhance mapping accuracy",
-        "Developed a multi-modal sensor fusion visual front-end for Visual-Inertial Odometry based on VINS Mono with learned keypoint detection and patch-based optical flow tracking across Monocular, Stereo, and Thermal camera configurations, providing uncertainty-aware measurements for downstream optimization",
-        "Built a tightly-coupled VIO back-end with Ceres in C++ using Variance Component Analysis (VCA) to adaptively weight Camera and IMU residuals within a sliding-window Bundle Adjustment framework to dynamically balance sensor contributions under degraded conditions",
-        "Evaluated the VIO pipeline on multiple datasets like Euroc, CART, SubT-MRS datasets on challenging and degrading conditions like smoke, dust and low texture environments"
-      ]
-    },
-    {
       company: "Medtronic",
       location: "Boston, MA",
       position: "Robotics Software Engineer",
@@ -87,6 +74,19 @@ const ExperienceSection = () => {
         "Automated Endoscope Stereo Camera Calibration using Zhang's method on a Charuco board with a UR3 Robot Arm",
         "Segmented hernias in 10,000 medical images using Swin Base Transformer with PyTorch DDP for multi-GPU training, tracked experiments via MLflow, and optimized using ONNX/TensorRT",
         "Implemented a PyTorch wrapper with Optical Flow on FAST API using Unimatch, deploying models to ONNX/TensorRT for 10x reduction in real time annotation of medical image frames with 1-second latency"
+      ]
+    },
+    {
+      company: "Carnegie Mellon University",
+      location: "Remote",
+      position: "Visiting Researcher - AirLab",
+      period: "July 2025 – May 2026",
+      achievements: [
+        "Integrated Relative Pose Graph Optimization in ROS2 in C++ using GTSAM Factor Graphs Fixed-Lag Smoother in the IMU Preintegration module of the multi-modal IMU-LiDAR sensor fusion to reduce long term drift in SLAM",
+        "Executed trajectory mapping using Livox LiDAR and IMU sensors on the Unitree G1 Humanoid robot, applying a low-pass filter to mitigate IMU bias and enhance mapping accuracy",
+        "Developed a multi-modal sensor fusion visual front-end for Visual-Inertial Odometry based on VINS Mono with learned keypoint detection and patch-based optical flow tracking across Monocular, Stereo, and Thermal camera configurations, providing uncertainty-aware measurements for downstream optimization",
+        "Built a tightly-coupled VIO back-end with Ceres in C++ using Variance Component Analysis (VCA) to adaptively weight Camera and IMU residuals within a sliding-window Bundle Adjustment framework to dynamically balance sensor contributions under degraded conditions",
+        "Evaluated the VIO pipeline on multiple datasets like Euroc, CART, SubT-MRS datasets on challenging and degrading conditions like smoke, dust and low texture environments"
       ]
     },
     {
