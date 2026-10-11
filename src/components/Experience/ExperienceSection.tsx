@@ -1,140 +1,110 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
+import { ChevronDown, MapPin } from 'lucide-react';
+import { Reveal, Rich, SectionHeader } from '@/components/common/Section';
+import { experiences, type Experience } from '@/data/profile';
 
-type TimelineItemProps = {
-  company: string;
-  location: string;
-  position: string;
-  period: string;
-  achievements: string[];
-  isLast?: boolean;
-};
+const VISIBLE_GROUPS = 2;
 
-const TimelineItem: React.FC<TimelineItemProps> = ({
-  company,
-  location,
-  position,
-  period,
-  achievements,
-  isLast = false,
-}) => {
+const ExperienceCard: React.FC<{ exp: Experience }> = ({ exp }) => {
+  const [expanded, setExpanded] = useState(false);
+  const total = exp.groups.reduce((n, g) => n + g.bullets.length, 0);
+  const groups = expanded ? exp.groups : exp.groups.slice(0, VISIBLE_GROUPS);
+  const hidden = exp.groups.length - VISIBLE_GROUPS;
+
   return (
-    <div className="relative pl-8 sm:pl-12 py-6">
-      {/* Timeline dot and line */}
-      <div className="absolute left-0 top-7 sm:top-8 h-4 w-4 rounded-full bg-blue-500 dark:bg-blue-400 z-10"></div>
-      {!isLast && (
-        <div className="absolute left-[7px] sm:left-[7px] top-10 h-full w-0.5 bg-blue-200 dark:bg-blue-700"></div>
-      )}
-      
-      {/* Content */}
-      <div className="card">
-        <div className="flex flex-col sm:flex-row justify-between mb-4">
-          <div>
-            <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">{position}</h3>
-            <p className="text-md sm:text-lg font-medium text-blue-600 dark:text-blue-400">{company}</p>
-          </div>
-          <div className="mt-2 sm:mt-0 text-left sm:text-right">
-            <span className="inline-block bg-blue-100 text-blue-800 text-xs sm:text-sm font-medium px-2 sm:px-3 py-1 rounded dark:bg-blue-900 dark:text-blue-300">
-              {period}
-            </span>
-            <p className="text-gray-600 dark:text-gray-400 mt-1 text-sm sm:text-base">{location}</p>
-          </div>
+    <div className="relative pl-8 md:pl-12">
+      {/* Timeline node */}
+      <span
+        className={`absolute left-0 top-2 flex h-4 w-4 -translate-x-[8.5px] items-center justify-center rounded-full border-2 bg-void ${
+          exp.current ? 'border-signal' : 'border-edge'
+        }`}
+      >
+        {exp.current && <span className="h-1.5 w-1.5 rounded-full bg-signal" />}
+      </span>
+
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+        <div>
+          <h3 className="font-display text-xl md:text-2xl font-semibold">{exp.role}</h3>
+          <p className="mt-0.5 text-signal font-medium">{exp.company}</p>
         </div>
-        <ul className="space-y-2">
-          {achievements.map((achievement, index) => (
-            <li key={index} className="flex items-start">
-              <span className="text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0">•</span>
-              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{achievement}</span>
-            </li>
+        <div className="font-mono text-xs text-subtle md:text-right">
+          <p className={exp.current ? 'text-signal' : ''}>{exp.period}</p>
+          <p className="mt-1 inline-flex items-center gap-1">
+            <MapPin className="h-3 w-3" /> {exp.location}
+          </p>
+        </div>
+      </div>
+
+      <p className="mt-3 max-w-3xl text-subtle">{exp.summary}</p>
+
+      {exp.metrics && (
+        <div className="mt-5 flex flex-wrap gap-3">
+          {exp.metrics.map(m => (
+            <div key={m.label} className="panel px-4 py-2">
+              <span className="font-display text-lg font-semibold text-ink">{m.value}</span>
+              <span className="ml-2 text-xs text-subtle">{m.label}</span>
+            </div>
           ))}
-        </ul>
+        </div>
+      )}
+
+      <div className="mt-6 grid gap-4 lg:grid-cols-2">
+        {groups.map(group => (
+          <div key={group.title} className="panel p-5">
+            <h4 className="font-mono text-xs uppercase tracking-wider text-signal">{group.title}</h4>
+            <ul className="mt-3 space-y-2.5">
+              {group.bullets.map(bullet => (
+                <li key={bullet} className="flex gap-3 text-sm leading-relaxed text-subtle">
+                  <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-subtle/60" />
+                  <span>
+                    <Rich text={bullet} />
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {hidden > 0 && (
+        <button
+          onClick={() => setExpanded(e => !e)}
+          className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs text-subtle hover:text-signal transition-colors"
+          aria-expanded={expanded}
+        >
+          {expanded ? 'Show less' : `Show all ${total} contributions (+${hidden} areas)`}
+          <ChevronDown className={`h-3.5 w-3.5 transition-transform ${expanded ? 'rotate-180' : ''}`} />
+        </button>
+      )}
+
+      <div className="mt-5 flex flex-wrap gap-1.5">
+        {exp.stack.map(s => (
+          <span key={s} className="chip">
+            {s}
+          </span>
+        ))}
       </div>
     </div>
   );
 };
 
 const ExperienceSection = () => {
-  const experiences = [
-    {
-      company: "Medtronic",
-      location: "Boston, MA",
-      position: "Systems Vision Engineer",
-      period: "Sept 2025 – Present",
-      achievements: [
-        "Designed a Pose Graph pipeline in GTSAM using Robot Kinematics and TensorRT based YOLOv8 vision keypoints to reduce the drift and track the instrument points accurately in Out-of-View scenarios",
-        "Engineered a Arm Collision Avoidance System using Trimesh of the medical robot using URDF and Kinematics using RTI DDS publish-subcribe method for real time visualization in Open3D",
-        "Established a secure bridge communication between Production and Engineering Robotic systems to effectively transfer Kinematics messages"
-      ]
-    },
-    {
-      company: "Carnegie Mellon University",
-      location: "Remote",
-      position: "Research Assistant - AirLab",
-      period: "July 2025 – Nov 2025",
-      achievements: [
-        "Integrated Relative Pose Graph Optimization in ROS2 in C++ using GTSAM Fixed-Lag Smoother in the IMU Preintegration module of the multi-modal IMU-LiDAR sensor fusion to reduce long term drift in SLAM",
-        "Achieved 35.8% lower ATE and 52.5% RPE on the SubT-MRS Laurel Cavern dataset with Velodyne LiDAR",
-        "Executed trajectory mapping using Livox LiDAR and IMU sensors on the Unitree G1 robot, applying a low-pass filter to mitigate IMU bias and enhance mapping accuracy",
-        "Built a Thermal-Intertial Odometry system with uncertainty aware-feature weighting for pose estimation in CART dataset",
-        "Enhanced an Uncertainty SLAM system by integrating Voxel Maps, resulting in improved localization robustness and accuracy in challenging environments"
-      ]
-    },
-    {
-      company: "Medtronic",
-      location: "Boston, MA",
-      position: "Surgical R&T Machine Learning Engineer",
-      period: "Jan 2024 – Apr 2025",
-      achievements: [
-        "Built an end-to-end SLAM pipeline with DROID-SLAM for dense depth estimation in surgical videos, optimizing camera trajectory using GTSAM and refining 3D reconstruction with Bundle Adjustment and LightGlue feature matching",
-        "Developed a real-time Ground Truth pose estimation pipeline using OptiTrack camera capture and robot kinematics with PnP and ROMA feature detection for training deep learning models on instrument articulation",
-        "Performed Semantic Segmentation for, Robot-Assisted Surgery, on 10,000 medical images from S3 bucket, containing both mask and line annotations, to segment hernia using the Swin Base Transformer",
-        "Developed a YOLOv8-based pipeline for precise detection of surgical instrument tips from medical images in real-time",
-        "Applied Monocular Depth Estimation to get metric distance between two instruments from an image by Depth Anything",
-        "Implemented a PyTorch wrapper with Optical Flow on FAST API using Unimatch, converting models to ONNX and TensorRT for 10x reduction in real time annotation of medical image frames with 1-second latency"
-      ]
-    },
-    {
-      company: "Northeastern University",
-      location: "Boston, MA",
-      position: "Research Student - Computer Vision",
-      period: "May 2023 – Dec 2023",
-      achievements: [
-        "Researched raw log RGB data's impact on deep networks like ResNet-18, improving classification performance and robustness to intensity and color variations",
-        "Codeveloped the novel RAW10 dataset (10k DNG & JPG images each, 10 categories) to advance LOG RGB research in Computer Vision community",
-        "Published CVPR 2024 paper on this research",
-      
-      ]
-    },
-    {
-      company: "Kisan Drip Irrigation Pvt Ltd",
-      location: "India",
-      position: "Artificial Intelligence Engineer",
-      period: "Aug 2020 – Aug 2022",
-      achievements: [
-        "Integrated ElasticFusion: RGB-D SLAM with C++ to align multi-view point clouds from Intel RealSense D455 cameras,enabling accurate 3D Reconstruction for pipe inspection and defect analysis",
-        "Experimented with PointNet-based deep learning models in Python for point cloud classification to enhance complex defect identification, achieving a 30% improvement over traditional 2D vision methods",
-        "Implemented YOLO-based object detection to localize drippers in pipe assemblies, enabling precise hole punching",
-        "Deployed the 3D vision pipeline as a containerized FastAPI service integrated into on-premises manufacturing workflows"
-      ]
-    },
-  ];
-
   return (
-    <section id="experience" className="section-padding">
+    <section id="experience" className="section border-t border-edge">
       <div className="container-custom">
-        <h2 className="section-title">Professional Experience</h2>
-        <div className="mt-6 sm:mt-8">
-          {experiences.map((exp, index) => (
-            <TimelineItem
-              key={index}
-              company={exp.company}
-              location={exp.location}
-              position={exp.position}
-              period={exp.period}
-              achievements={exp.achievements}
-              isLast={index === experiences.length - 1}
-            />
+        <SectionHeader
+          index="02"
+          label="Experience"
+          title="Where I've shipped robotics."
+          intro="Surgical robotics in industry, field robotics in research, and 3D vision on the factory floor."
+        />
+        <div className="relative space-y-16 border-l border-edge">
+          {experiences.map(exp => (
+            <Reveal key={exp.company}>
+              <ExperienceCard exp={exp} />
+            </Reveal>
           ))}
         </div>
       </div>

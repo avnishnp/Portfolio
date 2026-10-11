@@ -9,7 +9,19 @@ export default {
   ],
   theme: {
   	extend: {
+  		fontFamily: {
+  			sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  			display: ['var(--font-display)', 'var(--font-sans)', 'sans-serif'],
+  			mono: ['var(--font-mono)', 'ui-monospace', 'monospace']
+  		},
   		colors: {
+  			void: 'rgb(var(--c-base) / <alpha-value>)',
+  			panel: 'rgb(var(--c-panel) / <alpha-value>)',
+  			edge: 'rgb(var(--c-edge) / <alpha-value>)',
+  			ink: 'rgb(var(--c-ink) / <alpha-value>)',
+  			subtle: 'rgb(var(--c-subtle) / <alpha-value>)',
+  			signal: 'rgb(var(--c-signal) / <alpha-value>)',
+  			warn: 'rgb(var(--c-warn) / <alpha-value>)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			sidebar: {
